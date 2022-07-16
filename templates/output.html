@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h4 class="card-header">{{ title }}</h4>
+    <div class="card-body">
+    {% if output %}<h5 class="card-title">{{ output }}</h5>{% endif %}
+    {% if sub_title %}<h4 class="card-title">{{ sub_title }}</h4>{% endif %}
+    <p class="card-text">
+        
+        {% if result_list %}
+            {% for message in result_list %}
+                {{ message }}<br>
+            {% endfor %}
+        {% endif %}
+        <pre class="prettyprint"><code class="language-javascript">{{ code }}</code></pre>
+    </p>
+    </div>
+
+    {% if json %}
+    <h4 class="card-header">JSON response</h4>
+    <div class="card-body">
+    <p class="card-text">
+        <pre class="prettyprint"><code class="language-javascript">{{ json }}</code></pre>
+    </p>
+     {% endif %}
+    </div>
+{% endblock %}
