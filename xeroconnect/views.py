@@ -152,6 +152,7 @@ def tenants(request):
         'output.html'
     )
 
+@xero_token_required
 def get_xero_tenant_id():
     token = obtain_xero_oauth2_token()
     if not token:
@@ -161,9 +162,29 @@ def get_xero_tenant_id():
     for connection in identity_api.get_connections():
         if connection.tenant_type == "ORGANISATION":
             return connection.tenant_id
-    
-# Get Profit and Loss
 
+def disconnect(request):
+    connection_id = get_connection_id()
+    identity_api = IdentityApi(api_client)
+    identity_api.delete_connection(
+        id=connection_id
+    )
+
+    return redirect("home")
+
+@xero_token_required
+def refresh_token(request):
+    xero_token = obtain_xero_oauth2_token()
+    new_token = api_client.refresh_oauth2_token()
+    return render(request, template_name=
+        "output.html")
+    """,
+        code=jsonify({"Old Token": xero_token, "New token": new_token}),
+        sub_title="token refreshed",
+        )"""
+
+# Accounting API's    
+# Get Profit and Loss
 @xero_token_required
 def accounting_get_report_profit_and_loss(request):
     api_instance = AccountingApi(api_client)

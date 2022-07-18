@@ -22,8 +22,8 @@ urlpatterns = [
     path('callback', oauth_callback, name='callback'),
     path('logout', logout, name='logout'),
     path('tenants', tenants, name='tenants'),
-    #path('export-token', export_token, name='export_token'),
-    #path('refresh-token', refresh_token, name='refresh_token'),
+    path('refresh-token', refresh_token, name='refresh_token'),
+    path('disconnect', disconnect, name='disconnect'),
     path('accounting-get-report-profit-and-loss', accounting_get_report_profit_and_loss, name='accounting_get_report_profit_and_loss'),
     path('accounting-get-report-balance-sheet', accounting_get_report_balance_sheet, name='accounting_get_report_balance_sheet'),
 ]
