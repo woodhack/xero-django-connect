@@ -245,24 +245,3 @@ def accounting_get_contacts():
     except AccountingBadRequestException as e:
         print("Exception when calling AccountingApi->getContacts: %s\n" % e)
 """
-
-"""
-# Get Invoices
-@xero_token_required
-def get_invoices(request):
-    xero_tenant_id = get_xero_tenant_id()
-    print("Tenent Id")
-    print(xero_tenant_id)
-    accounting_api = AccountingApi(api_client)
-    print(dir(accounting_api))
-    invoices = accounting_api.get_invoices(
-        xero_tenant_id
-    )
-    print(invoices)
-    code = serialize_model(invoices)
-    sub_title = "Total invoices found: {}".format(len(invoices.invoices))
-    context = {'title': 'xero|Invoices',
-               'code': code['Invoices'],
-               'sub_title': sub_title}
-    return render(request, template_name="code.html", context=context)
-"""
