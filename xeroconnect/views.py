@@ -39,8 +39,8 @@ oauth = OAuth()
 xero = oauth.register(
     name="xero",
     version="2",
-    client_id="B8088CE4C926465AAAFBC99D6CAED1BC",  # Should be changed
-    client_secret="tgl0-CgUlT6MInzgyuTRco2hYtOQis7xAaOuQuEy8FhY0JY0", # Should be changed
+    client_id="***",  # Should be changed
+    client_secret="***", # Should be changed
     endpoint_url="https://api.xero.com/",
     authorize_url="https://login.xero.com/identity/connect/authorize",
     access_token_url="https://identity.xero.com/connect/token",
@@ -58,8 +58,8 @@ api_client = ApiClient(
     Configuration(
         debug=True,
         oauth2_token=OAuth2Token(
-            client_id="B8088CE4C926465AAAFBC99D6CAED1BC", # Keep secure
-            client_secret="tgl0-CgUlT6MInzgyuTRco2hYtOQis7xAaOuQuEy8FhY0JY0"  # Keep secure
+            client_id="***", # Keep secure
+            client_secret="***"  # Keep secure
         ),
     ),
     pool_threads=1,
